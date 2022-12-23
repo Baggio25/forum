@@ -1,5 +1,6 @@
 package br.com.alura.forum.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +18,17 @@ public class TopicosController {
 	private TopicoRepository topicoRepository;
 
 	@RequestMapping("/topicos")
-	public List<TopicoDTO> lista() {
-		List<Topico> topicos = topicoRepository.findAll();
+	public List<TopicoDTO> lista(String nomeCurso) {
+		List<Topico> topicos = new ArrayList<>();
+		
+		if(nomeCurso == null) {
+			topicos = topicoRepository.findAll();
+		} else {
+			topicos = topicoRepository.findByCursoNome(nomeCurso);
+		}
+		
 		return TopicoDTO.converter(topicos);
+		
 	}
 	
 }
