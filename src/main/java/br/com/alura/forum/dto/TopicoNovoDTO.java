@@ -1,13 +1,21 @@
 package br.com.alura.forum.dto;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 import br.com.alura.forum.modelo.Curso;
 import br.com.alura.forum.modelo.Topico;
 import br.com.alura.forum.repository.CursoRepository;
 
 public class TopicoNovoDTO {
 
+	@NotBlank
 	private String titulo;
+	
+	@NotBlank
 	private String mensagem;
+	
+	@NotNull
 	private String nomeCurso;
 
 	public String getTitulo() {
