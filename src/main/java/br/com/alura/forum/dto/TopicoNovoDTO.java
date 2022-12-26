@@ -9,13 +9,13 @@ import br.com.alura.forum.repository.CursoRepository;
 
 public class TopicoNovoDTO {
 
-	@NotBlank
+	@NotBlank(message = "Campo é obrigatório")
 	private String titulo;
 	
-	@NotBlank
+	@NotBlank(message = "Campo é obrigatório")
 	private String mensagem;
 	
-	@NotNull
+	@NotNull(message = "Campo é obrigatório")
 	private String nomeCurso;
 
 	public String getTitulo() {
